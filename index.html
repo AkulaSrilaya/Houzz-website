@@ -624,7 +624,7 @@
           <div class="card">
             <div class="card-body">
               <h3>Pinning&Boards</h3>
-              <p>you can pin images and links to organised boards based on themes,travel,fashion,recipes.</p>
+              <p>you can pin images and links to organised boards based on themes,travel,fashion.</p>
             </div>
           </div>
         </div>
@@ -655,7 +655,7 @@
         <div class="col-md-4 py-3 py-md-0">
           <div class="card">
             <div class="card-body">
-              <h3>Collaboration&Shared Boards</h3>
+              <h3>Collaboration&Shared</h3>
               <p>Used to create shared boards and collaborators can add pins</p>
             </div>
           </div>
@@ -736,24 +736,42 @@
       </div>
     </div>
   </section>
-  <div class="footer">
-    <footer id="Footer">
-      <h1><span>H</span>ouzz</h1>
-      <div class="social-links">
-        <i class="fab fa-twitter"></i>
-        <i class="fab fa-facebook"></i>
-        <i class="fab fa-instagram"></i>
-        <i class="fab fa-youtube"></i>
-        <i class="fab fa-pinterest-p"></i>
-      </div>
-      <div class="credit">
-        <p>Designed By <a href="#">Srilaya</a></p>
-      </div>
-      <div class="copyright">
-        <p>&copy; Copyright Srilaya. All Rights Reserved</p>
-      </div>
-    </footer>
+   <section id="contact-us" style="padding: 40px; background-color: #f9f9f9; text-align: center;">
+  <h2>Contact Us</h2>
+  <p>We’d love to hear from you! Whether you have questions, feedback, or just want to say hello, reach out to us anytime.</p>
+  
+  <div style="margin: 20px auto; max-width: 600px;">
+    <form action="/submit-contact" method="POST" style="display: flex; flex-direction: column; gap: 15px;">
+      <input type="text" name="name" placeholder="Your Name" required style="padding: 10px; font-size: 16px;">
+      <input type="email" name="email" placeholder="Your Email" required style="padding: 10px; font-size: 16px;">
+      <textarea name="message" placeholder="Your Message" rows="4" required style="padding: 10px; font-size: 16px;"></textarea>
+      <button type="submit" style="padding: 10px; font-size: 16px; background-color: #0073e6; color: #fff; border: none; cursor: pointer;">Send Message</button>
+    </form>
   </div>
+
+  <p style="margin-top: 20px;">Or, feel free to email us directly at <a href="mailto:support@Houzzwebsite.com">support@Houzzwebsite.com</a></p>
+  </section>
+
+  <section class="middle-footer">
+    <div class="footer">
+      <footer id="Footer">
+        <h1><span>H</span>ouzz</h1>
+        <div class="social-links">
+          <i class="fab fa-twitter"></i>                   
+          <i class="fab fa-facebook"></i>
+          <i class="fab fa-instagram"></i>
+          <i class="fab fa-youtube"></i>
+          <i class="fab fa-pinterest-p"></i>
+        </div>
+        <div class="credit">
+          <p>Designed By <a href="#">Srilaya</a></p>
+        </div>
+        <div class="copyright">
+          <p>&copy; Copyright Srilaya. All Rights Reserved</p>
+        </div>
+      </footer>
+    </div>
+  </section>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
