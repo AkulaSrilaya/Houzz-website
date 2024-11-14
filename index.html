@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Houzz</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+   *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+      text-align: none;
+      list-style: none;
+    }
+    @navbar{
+      background: #f9f9f9;
+    }
+    #logo{
+      font-size: 36px;
+      font-weight: 600;
+      color: black;
+      text-shadow: 0px 1px 1px black;
+      margin-bottom: 5px;
+      font-family: "Open Sans", sans-serif;
+    }
+    .logo span{
+      color: red;
+    }
+    .navbar-toggler{
+      color: red;
+    }
+    .navbar-nav{
+      margin-left: 20px;
+    }
+    .nav-item .nav-link{
+      font-size: 16px;
+      font-weight: 550;
+      color: black;
+      letter-spacing: 1px;
+      border-radius: 3px;
+      transition: 0.5s ease;
+    }
+    .nav-item .nav-link:hover{
+      background: red;
+      color: white;
+    }
+    #navbar form button{
+      background: red;
+      color: white;
+      border: none;
+    }
+    .home{
+      width: 100%;
+      height: 90vh;
+      background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.2)), url(./Assets/bgnd.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    .home .content{
+      text-align: center;
+      padding-top: 200px;
+    }
+    .home .content h5{
+      color: white;
+      font-size: 38px;
+      font-weight: 500;
+      text-shadow: 0px 1px 1px black;
+    }
+    .home .content h1{
+      color: white;
+      font-size: 70px;
+      font-weight: 600;
+      text-shadow: 0px 1px 1px black;
+      margin-top: 5px;
+    }
+    .changecontent::after{
+      content: ' ';
+      color: red;
+      text-shadow: 0px 1px 1px black;
+      animation: changetext 10s infinite linear;
+    }
+    @keyframes changetext{
+      0%{content: "Fashion & Style";}
+      10%{content: "Home Interior&Design";}
+      20%{content: "Food&Drinks";}
+      30%{content: "DIY&Crafts";}
+      40%{content: "Beauty";}
+      50%{content: "Travel";}
+      60%{content: "Wedding&Events";}
+      70%{content: "Health&Wellness";}
+      80%{content: "Quotes&Inspiration";}
+      90%{content: "Art&Photography";} 
+      100%{content: "Technology&Gadgets";}  
+    }
+    .home .content p{
+      color: purple;
+      font-size: 15px;
+      font-weight: 600;
+      text-shadow: 0px 1px 1px black;
+      margin-bottom: 20px;
+      margin-top: 5px;
+    }
+    .home .content a{
+      padding: 10px;
+      background: white;
+      color: black;
+      letter-spacing: 2px;
+      font-weight: 550;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: 0.5s;
+    }
+    .home .content a:hover{
+      background: red;
+      color: white;
+    }
+    @media(max-width:850px){
+      .home{
+        background-position: 50%;
+      }
+    }
+    @media(max-width:450px){
+      .home .content h5{
+        font-size: 25px;
+      }
+      .home .content h1{
+        font-size: 38px;
+      }
+      .home .ontent p{
+        font-size: 13px;
+      }
+    }
+    .main-txt h1{
+      text-align: center;
+      margin-top: 30px;
+      font-weight: 600;
+      text-overflow: 0px 1px 1px black;
+    }
+    .main-txt h1 span{
+      color: red;
+    }
+    .boards .card{
+      border-radius: 5px;
+      border: none;
+      box-shadow: rgba(0,0,0,0.1)  0px 4px 12px;
+    }
+    .boards .card img{
+      border-radius: 5px;
+    }
+    .boards .card .card-body{
+      background: transparent;
+    }
+    .boards .card .card-body h3{
+      font-size: 25px;
+      font-weight: 600;
+    }
+    .boards .card .card-body p{
+      font-size: 15px;
+    }
+    .boards .card .card-body h6{
+      font-size: 20px;
+    }
+    .boards .card .card-body a{
+      padding: 10px;
+      text-decoration: none;
+      background: red;
+      color: white;
+      border-radius: 5px;
+    }
+    .exploespots{
+      background: #f9f9f9;
+      padding: 50px;
+    }
+    .main-text h1{
+      text-align: center;
+      text-shadow: 0px 1px 1px black;
+      font-weight: 600;
+    }
+    .main-text h1 span{
+      color: red;
+    }
+    .explorespots .card{
+      border-radius: 10px;
+      box-shadow: 0px 5px 5px -6px black;
+    }
+    .explorespots .row{
+      margin-top: 30px;
+    }
+    .explorespots form input{
+      padding: 10px;
+      color: black;
+      border: none;
+      outline: none;
+      font-size: 15px;
+      border-radius: 10px;
+      box-shadow: 0px 5px 5px -6px black;
+    }
+    .explorespots .submit{
+      width: 160px;
+      font-size: 16px;
+      font-weight: 550;
+      background: red;
+      color: white;
+      margin-top: 10px;
+      transition: 0.5s;
+    }
+    .explorespots .submit:hover{
+      width: 170px;
+    }
+    @media (max-width:765px){
+      .explorespots{
+        padding: 0;
+      }
+      main-text h1{
+        margin-top: 20px;
+      }
+    }
+    .services{
+      background-color: #f9f9f9;
+      margin-top: 50px;
+    }
+    .services .card{
+      box-shadow: rgba(0,0,0,0.1) 0px 4px 12px;
+      border: none;
+      cursor: pointer;
+    }
+    .services .card i{
+      font-size: 80px;
+      text-align: center;
+      color: red;
+      margin-top: 20px;
+    }
+    .services .card .card-body h3{
+      font-weight: 600;
+    }
+    .services .card .card-body{
+      text-align: center;
+    }
+    .about{
+      padding: 50px;
+      margin-top: 50px;
+      background: #f9f9f9;
+    }
+    .about .card{
+      border-radius: 10px;
+    }
+    .about img{
+      border-radius: 10px;
+    }
+    .about h2{
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+    .about p{
+      font-size: 500;
+    }
+    #about-btn{
+      width: 150px;
+      height: 38px;
+      border: none;
+      border: 5px;
+      background: red;
+      color: #f9f9f9;
+      letter-spacing: 2px;
+      font-weight: 550;
+      transition: 0.5s ease;
+      cursor: pointer;
+    }
+    #about-btn:hover{
+      width: 170px;
+    }
+    @media (max-width:765px){
+      .about{
+        padding: 0;
+      }
+    }
+    #footer{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+      width: 100%;
+      height: 100vh;
+      margin-top: 150px;
+      text-align: center;
+      background: #f9f9f9;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    #footer h1{
+      font-weight: 600;
+      padding-top: 30px;
+      text-shadow: 0px 0px 1px black;
+    }
+    #footer h1 span{
+      color: red;
+    }
+    .social-links{
+      text-align: center;
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .social-links i{
+      padding: 10px;
+      border-radius: 5px;
+      font-size: 20px;
+      background: black;
+      color: white;
+      margin-left: 10px;
+      margin-bottom: 10px;
+      transition: 0.5s;
+      cursor: pointer;
+    }
+    .social-links i:hover{
+      background: red;
+    }
+    .credit, .copyright{
+      margin-top: 10px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg" id="navbar">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"><span>H</span>OUZZ</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+        <span><i class="fa-solid fa-bars"></i></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mynavbar">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#explorespots">ExploreSpots</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#boards">Boards</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#services">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#lookbook">LookBook</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#about">About</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="text" placeholder="Search">
+          <button class="btn btn-primary" type="button">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <div class="home">
+    <div class="content">
+      <h5>Welcome To Houzz!</h5>
+      <h1>Explore <span class="changecontent"></span></h1>
+      <p>Where beauty meets serenity. Create spaces that bring you joy and calm."</p>
+      <a href="#find">Find your style</a>
+    </div>
+  </div>
+
+  <section class="explorespots" id="explorespots">
+    <div class="container">
+      <div class="main-txt">
+        <h1><span>E</span>xploreSpots</h1>
+      </div>
+      <div class="row">
+        <div class="col-md-6 py-3 py-md-0">
+          <div class="card">
+            <img src="./Assets/explore.png" alt="">
+          </div>
+        </div>
+        <div class="col-md-6 py-3 py-md-0">
+          <form action="a">
+            <input type="text" class="form-control" placeholder="Category" required><br>            
+            <input type="text" class="form-control" placeholder="Interest Tags" required><br>            
+            <input type="text" class="form-control" placeholder="Event or Occasion" required><br>            
+            <input type="text" class="form-control" placeholder="Budget Range" required><br>  
+            <input type="text" class="form-control" placeholder="Location" required><br>
+            <input type="submit" value="Create Your Board" class="Submit" required>                     
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="boards" id="boards">
+  <div class="container">
+    <div class="main-txt">
+      <h1><span>B</span>oards</h1>
+    </div>
+    <div class="row mt-4">
+      <!-- Card 1 -->
+      <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+        <div class="card">
+          <img src="./Assets/baggyjeans.png" class="card-img-top" alt="Baggy Jeans Outfit">
+          <div class="card-body">
+            <h3>Baggy Jeans Outfit</h3>
+            <p>Unwind in style</p>
+            <a href="#explore" class="btn btn-primary">Explore More</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+        <div class="card">
+          <img src="./Assets/cherryred.png" class="card-img-top" alt="Cherry red aesthetic">
+          <div class="card-body">
+            <h3>Cherry red aesthetic</h3>
+            <p>Turns Heads with Cherry Red</p>
+            <a href="#explore" class="btn btn-primary">Explore More</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+        <div class="card">
+          <img src="./Assets/balaiyyababu.png" class="card-img-top" alt="Vintage heroes">
+          <div class="card-body">
+            <h3>Vintage heroes</h3>
+            <p>Legends of the past</p>
+            <a href="#explore" class="btn btn-primary">Explore More</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+        <div class="card">
+          <img src="./Assets/tattooo.png" class="card-img-top" alt="Tattoo">
+          <div class="card-body">
+            <h3>Tattoo</h3>
+            <p>Art on skin</p>
+            <a href="#explore" class="btn btn-primary">Explore More</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+        <div class="card">
+          <img src="./Assets/photopose.png" class="card-img-top" alt="Photo poses">
+          <div class="card-body">
+            <h3>Photo poses</h3>
+            <p>Pose like a Pro</p>
+            <a href="#explore" class="btn btn-primary">Explore More</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+        <div class="card">
+          <img src="./Assets/designemplate.png" class="card-img-top" alt="Design Templates">
+          <div class="card-body">
+            <h3>Design Templates</h3>
+            <p>Design your vision</p>
+            <a href="#explore" class="btn btn-primary">Explore More</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 7 -->
+      <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+        <div class="card">
+          <img src="./Assets/tradress.png" class="card-img-top" alt="Traditional dress ideas">
+          <div class="card-body">
+            <h3>Traditional dress ideas</h3>
+            <p>Grace and Glamour</p>
+            <a href="#explore" class="btn btn-primary">Explore More</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 8 -->
+      <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+        <div class="card">
+          <img src="./Assets/wallpaper.png" class="card-img-top" alt="Wallpapers">
+          <div class="card-body">
+            <h3>Wallpapers</h3>
+            <p>Timeless Beauty</p>
+            <a href="#explore" class="btn btn-primary">Explore More</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 9 -->
+      <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+        <div class="card">
+          <img src="./Assets/bridee.png" class="card-img-top" alt="Pakistani bride">
+          <div class="card-body">
+            <h3>Pakistani bride</h3>
+            <p>Where heritage meets Glamour</p>
+            <a href="#explore" class="btn btn-primary">Explore More</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 10 -->
+      <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+        <div class="card">
+          <img src="./Assets/fashion.png" class="card-img-top" alt="2000s fashion">
+          <div class="card-body">
+            <h3>2000s fashion</h3>
+            <p>Retro vibes</p>
+            <a href="#explore" class="btn btn-primary">Explore More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <section class="services" id="services">
+    <div class="container">
+      <div class="main-txt">
+        <h1><span>S</span>ervices</h1>
+      </div>
+      <div class="row" style="margin-top: 30px;">
+        <div class="col-md-4 py-3 py-md-0">
+          <div class="card">
+            <div class="card-body">
+              <h3>Pinning&Boards</h3>
+              <p>you can pin images and links to organised boards based on themes,travel,fashion,recipes.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 py-3 py-md-0">
+          <div class="card">
+            <div class="card-body">
+              <h3>Idea Discovery</h3>
+              <p>you can feed and search features let users discover personalized idea</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 py-3 py-md-0">
+          <div class="card">
+            <div class="card-body">
+              <h3>Advertising&Analytics</h3>
+              <p>It offers advertising solutions with promoted pins to help business</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 py-3 py-md-0">
+          <div class="card">
+            <div class="card-body">
+              <h3>Shopping Integration</h3>
+              <p>It integrates with various brands and retailetrs.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 py-3 py-md-0">
+          <div class="card">
+            <div class="card-body">
+              <h3>Collaboration&Shared Boards</h3>
+              <p>Used to create shared boards and collaborators can add pins</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 py-3 py-md-0">
+          <div class="card">
+            <div class="card-body">
+              <h3>Houzz Trends</h3>
+              <p>it help users for popular searches which is useful for marketing</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="Lookbook" id="Lookbook">
+    <div class="container">
+      <div class="main-txt">
+        <h1><span>L</span>ookBook</h1>
+      </div>
+      <div class="row" style="margin-top: 30px;">
+        <div class="col-md-4 py-3 py-md-0">
+          <div class="card">
+            <img src="./Assets/cafe food.png" alt="" height="230px">
+          </div>
+        </div>
+        <div class="col-md-4 py-3 py-md-0">
+          <div class="card">
+            <img src="./Assets/gadgets.png" alt="" height="230px">
+          </div>
+        </div>
+        <div class="col-md-4 py-3 py-md-0">
+          <div class="card">
+            <img src="./Assets/makeup.png" alt="" height="230px">
+          </div>
+        </div>
+        <div class="col-md-4 py-3 py-md-0">
+          <div class="card">
+            <img src="./Assets/beach.png" alt="" height="230px">
+          </div>
+        </div>
+        <div class="col-md-4 py-3 py-md-0">
+          <div class="card">
+            <img src="./Assets/walllpaperrr.png" alt="" height="230px">
+          </div>
+        </div>
+        <div class="col-md-4 py-3 py-md-0">
+          <div class="card">
+            <img src="./Assets/actors.png" alt="" height="230px">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="container">
+      <div class="main-txt">
+        <h1><span>A</span>bout</h1>
+      </div>
+      <div class="row" style="margin-top: 50px;">
+        <div class="col-md-6 py-3 py-md-0">
+          <div class="card">
+            <img src="./Assets/about.png" alt="">
+          </div>
+        </div>
+        <div class="col-md-6 py-3 py-md-0">
+          <h2>How Houzz Works</h2>
+          <p>It is visual discovery platform where users explore,save and organize content and 
+            inspirations into personalized boards,helping them plan projects,explore interests,and 
+            find new ideas in a visually engaging way.It serves as a digital inspiration board.
+            It works as content creation&sharing,product discovery&shopping,community engagement,search
+             and Inspiration,pinning&organizing,Personalized Feed,Visual Discovery.
+          </p>
+          <button id="about-btn">Read More</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="footer">
+    <footer id="Footer">
+      <h1><span>H</span>ouzz</h1>
+      <div class="social-links">
+        <i class="fab fa-twitter"></i>
+        <i class="fab fa-facebook"></i>
+        <i class="fab fa-instagram"></i>
+        <i class="fab fa-youtube"></i>
+        <i class="fab fa-pinterest-p"></i>
+      </div>
+      <div class="credit">
+        <p>Designed By <a href="#">Srilaya</a></p>
+      </div>
+      <div class="copyright">
+        <p>&copy; Copyright Srilaya. All Rights Reserved</p>
+      </div>
+    </footer>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
